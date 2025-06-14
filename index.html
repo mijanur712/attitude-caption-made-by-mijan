@@ -1,92 +1,144 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Attitude Caption Made by Mijan</title>
   <style>
-    body { font-family: sans-serif; background: #111; color: #fff; text-align: center; padding: 20px; }
-    h1 { color: #facc15; }
-    button, select { padding: 10px 20px; margin: 10px; font-size: 1em; border: none; border-radius: 5px; }
-    .caption-box { background: #222; margin: 15px auto; padding: 10px; border-radius: 10px; max-width: 500px; position: relative; }
-    .copy-btn { position: absolute; top: 10px; right: 10px; background: #facc15; color: #000; cursor: pointer; border-radius: 5px; }
-    footer { margin-top: 40px; color: #888; }
-    @media(max-width: 600px) {
-      .caption-box { font-size: 1em; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #00ffd5;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .caption-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #222;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffd5;
+    }
+    .caption {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <h1>😎 Attitude Caption Made by Mijan</h1>
+  <h1>Attitude Caption Made by Mijan</h1>
 
   <div>
-    <select id="languageToggle">
-      <option value="bn">বাংলা</option>
-      <option value="en">English</option>
-    </select>
-
-    <select id="moodFilter">
+    <label for="mood">Mood:</label>
+    <select id="mood">
       <option value="attitude">Attitude</option>
       <option value="love">Love</option>
       <option value="sad">Sad</option>
       <option value="funny">Funny</option>
     </select>
+
+    <label for="language">Language:</label>
+    <select id="language">
+      <option value="english">English</option>
+      <option value="bengali">বাংলা</option>
+    </select>
+
+    <button onclick="generateCaption()">Generate</button>
+    <button onclick="copyCaption()">Copy</button>
   </div>
 
-  <div id="captionContainer"></div>
+  <div class="caption-box">
+    <div class="caption" id="caption">Click generate to see a caption!</div>
+  </div>
 
-  <footer>Made by Mijanur ❤️</footer>
+  <div class="footer">
+    Made by Mijanur ❤️ | 2025
+  </div>
 
   <script>
     const captions = {
       attitude: {
-        en: ["I don't follow the crowd.", "Born to stand out."],
-        bn: ["আমি নিজের রাস্তায় হাঁটি।", "আমি আলাদা হওয়ার জন্যই জন্মেছি।"]
+        english: [
+          "I’m not special, I’m just a limited edition.",
+          "I don’t follow others, I only follow my dreams.",
+          "Born to express, not to impress.",
+          "My attitude is bigger than my ego."
+        ],
+        bengali: [
+          "আমি সাধারণ না, আমি একটাই পিস।",
+          "আমি কারো পথ অনুসরণ করি না, আমি নিজের স্বপ্ন দেখি।",
+          "দেখাতে নয়, বুঝাতে এসেছি।",
+          "আমার অ্যাটিটিউড আমার স্টাইল।"
+        ]
       },
       love: {
-        en: ["Love is not what you say, it's what you do."],
-        bn: ["ভালোবাসা কথায় নয়, কাজে প্রমাণ হয়।"]
+        english: [
+          "You are my today and all of my tomorrows.",
+          "In your smile I see something more beautiful than stars.",
+          "You stole my heart, but I’ll let you keep it."
+        ],
+        bengali: [
+          "তুমি আমার আজ এবং আগামীকাল।",
+          "তোমার হাসিতে আমি তারার চেয়েও সুন্দর কিছু দেখি।",
+          "তুমি আমার হৃদয় চুরি করেছো, রাখো ওটা চিরকাল।"
+        ]
       },
       sad: {
-        en: ["Tears speak when words can't."],
-        bn: ["শব্দ থেমে গেলে চোখ বলে।"]
+        english: [
+          "Tears come from the heart, not from the brain.",
+          "I’m not okay, I just smile to hide it.",
+          "Sometimes, silence is the loudest cry."
+        ],
+        bengali: [
+          "চোখের জল আসে মন থেকে, মস্তিষ্ক থেকে নয়।",
+          "আমি ভালো নেই, শুধু হাসি দিয়ে ঢাকি।",
+          "কখনো কখনো নীরবতাই সবচেয়ে বড় কান্না।"
+        ]
       },
       funny: {
-        en: ["I'm not lazy, I'm on energy saving mode."],
-        bn: ["আমি অলস না, আমি এনার্জি সেভিং মোডে আছি।"]
+        english: [
+          "I’m not lazy, I’m on energy-saving mode.",
+          "I used to think I was indecisive, but now I’m not sure.",
+          "If stress burned calories, I’d be a supermodel."
+        ],
+        bengali: [
+          "আমি অলস না, আমি শক্তি সংরক্ষণে আছি।",
+          "আমি একসময় ভাবতাম আমি দ্বিধাগ্রস্ত, এখন নিশ্চিত না।",
+          "যদি টেনশন ক্যালরি পোড়াতো, আমি মডেল হতাম!"
+        ]
       }
     };
 
-    const languageToggle = document.getElementById('languageToggle');
-    const moodFilter = document.getElementById('moodFilter');
-    const captionContainer = document.getElementById('captionContainer');
+    function generateCaption() {
+      const mood = document.getElementById("mood").value;
+      const language = document.getElementById("language").value;
+      const list = captions[mood][language];
+      const random = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("caption").innerText = random;
+    }
 
-    function showCaptions() {
-      const lang = languageToggle.value;
-      const mood = moodFilter.value;
-      const moodCaptions = captions[mood][lang];
-
-      captionContainer.innerHTML = "";
-
-      moodCaptions.forEach(text => {
-        const box = document.createElement('div');
-        box.className = "caption-box";
-        box.innerHTML = `
-          <span>${text}</span>
-          <button class="copy-btn" onclick="copyCaption('${text}')">Copy</button>
-        `;
-        captionContainer.appendChild(box);
+    function copyCaption() {
+      const text = document.getElementById("caption").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Caption copied to clipboard!");
       });
     }
-
-    function copyCaption(text) {
-      navigator.clipboard.writeText(text);
-      alert("✅ Copied!");
-    }
-
-    languageToggle.addEventListener('change', showCaptions);
-    moodFilter.addEventListener('change', showCaptions);
-    showCaptions();
   </script>
 </body>
 </html>
