@@ -1,137 +1,70 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Attitude Caption Made by Mijanur</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e0eafc, #cfdef3);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 30px;
-      font-size: 2rem;
-      color: #222;
-    }
-    #caption {
-      font-size: 1.3rem;
-      margin: 20px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      width: 80%;
-      max-width: 600px;
-    }
-    button, select {
-      margin: 10px;
-      padding: 10px 16px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      transition: background 0.3s ease;
-    }
-    button:hover, select:hover {
-      background-color: #0056b3;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #333;
-    }
-    .controls {
-      margin-bottom: 20px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Attitude Caption Made by Mijanur</h1>  <div class="controls">
-    <select id="language">
-      <option value="en">English</option>
-      <option value="bn">বাংলা</option>
-    </select><select id="mood">
-  <option value="attitude">Attitude</option>
-  <option value="romantic">Romantic</option>
-  <option value="sad">Sad</option>
-  <option value="funny">Funny</option>
-</select>
-
-<button onclick="generateCaption()">Generate Caption</button>
-<button onclick="copyCaption()">Copy</button>
-
-  </div>  <div id="caption">Loading a powerful caption...</div>  <footer>© 2025 Made by Mijanur</footer>  <script>
-    const captions = {
-      en: {
-        attitude: [
-          "Legends don't compete, they dominate. – made by Mijanur",
-          "I’m not special, I’m just a limited edition. – made by Mijanur",
-          "Haters gonna hate, I’m just busy being great. – made by Mijanur"
-        ],
-        romantic: [
-          "Her smile is my favorite chapter. – made by Mijanur",
-          "I love you for all that you are. – made by Mijanur",
-          "You + Me = Forever. – made by Mijanur"
-        ],
-        sad: [
-          "Smiling outside, dead inside. – made by Mijanur",
-          "Pain teaches more than love ever could. – made by Mijanur",
-          "Tears are words the heart can't say. – made by Mijanur"
-        ],
-        funny: [
-          "Sorry, I only date food. – made by Mijanur",
-          "WiFi > Girlfriend. At least it connects. – made by Mijanur",
-          "I’m not lazy, I’m on energy-saving mode. – made by Mijanur"
-        ]
-      },
-      bn: {
-        attitude: [
-          "আমি Bad না ভাই, just আমার vibe সবার সহ্য হয় না। – made by Mijanur",
-          "যারা চোখে চোখ রাখে, তারাই ভয় পায় না। – made by Mijanur",
-          "আমি সাধারণ না, আমি একটাই পিস। – made by Mijanur"
-        ],
-        romantic: [
-          "তুই না থাকলে দিন শুরুই হয় না। – made by Mijanur",
-          "ভালোবাসা মানে তোর নাম মনে পড়া বারবার। – made by Mijanur",
-          "তোর হাসি দেখলেই মন ভালো হয়ে যায়। – made by Mijanur"
-        ],
-        sad: [
-          "ভালো থেকো, আমি আর বিরক্ত করবো না। – made by Mijanur",
-          "সবাই ব্যস্ত আপন মানুষটা হারাতে... – made by Mijanur",
-          "একটা সময় ছিল, ও ছিল। এখন শুধু সময় আছে... – made by Mijanur"
-        ],
-        funny: [
-          "আমি এত lazy, ঘুমের মধ্যেও ঘুমাই। – made by Mijanur",
-          "Exam-এর আগে পড়ি, কিন্তু প্রশ্ন দেখে সব ভুলে যাই। – made by Mijanur",
-          "WiFi অন্তত কানেক্ট হয়, প্রেমিকা তো না। – made by Mijanur"
-        ]
-      }
-    };
-
-    function generateCaption() {
-      const lang = document.getElementById('language').value;
-      const mood = document.getElementById('mood').value;
-      const list = captions[lang][mood];
-      const randomIndex = Math.floor(Math.random() * list.length);
-      document.getElementById('caption').innerText = list[randomIndex];
-    }
-
-    function copyCaption() {
-      const text = document.getElementById('caption').innerText;
-      navigator.clipboard.writeText(text).then(() => alert("Caption copied!"));
-    }
-
-    // Auto load one caption
-    window.onload = generateCaption;
-  </script></body>
-</html>
+const captions = {
+  en: {
+    attitude: [
+      "Legends don't compete, they dominate. – made by Mijanur",
+      "I'm not special, I'm just a limited edition. – made by Mijanur",
+      "They said I changed, I said I evolved. – made by Mijanur",
+      "No time for fake people. – made by Mijanur",
+      "Success is my revenge. – made by Mijanur"
+      // Add 95+ more attitude (English) captions here if needed
+    ],
+    romantic: [
+      "Every love story is beautiful, but ours is my favorite. – made by Mijanur",
+      "You’re my today and all of my tomorrows. – made by Mijanur",
+      "Falling in love with you was the best accident. – made by Mijanur",
+      "I smile more when I'm with you. – made by Mijanur",
+      "You're not my number one, you're my only one. – made by Mijanur"
+      // Add 95+ more romantic (English) captions here if needed
+    ],
+    sad: [
+      "Tears speak what the heart can't say. – made by Mijanur",
+      "I'm smiling outside, broken inside. – made by Mijanur",
+      "Some wounds never show, but they hurt the most. – made by Mijanur",
+      "Silence is my loudest cry. – made by Mijanur",
+      "Sometimes it's better to be alone. – made by Mijanur"
+      // Add 95+ more sad (English) captions here if needed
+    ],
+    funny: [
+      "I’m not lazy, I’m just on energy-saving mode. – made by Mijanur",
+      "If I were you, I would adore me too. – made by Mijanur",
+      "Life’s too short to be serious all the time. – made by Mijanur",
+      "I'm not weird, I'm limited edition. – made by Mijanur",
+      "I put the ‘Pro’ in procrastinate. – made by Mijanur"
+      // Add 95+ more funny (English) captions here if needed
+    ]
+  },
+  bn: {
+    attitude: [
+      "আমি Bad না ভাই, just আমার vibe সবার সহ্য হয় না। – made by Mijanur",
+      "যারা চোখে চোখ রাখে, তারাই ভয় পায় না। – made by Mijanur",
+      "আমি সাধারণ না, আমি একটাই পিস। – made by Mijanur",
+      "পিছনে কথা বলে যারা, সামনে কিছু করার সাহস নেই তাদের। – made by Mijanur",
+      "আমি trend follow করি না, trend আমি বানাই। – made by Mijanur"
+      // Add 95+ more attitude (Bangla) captions here if needed
+    ],
+    romantic: [
+      "তোমার হাসিটা আমার পুরো দিন ভালো করে দেয়। – made by Mijanur",
+      "ভালোবাসি বলা হয় না, অনুভব করানো হয়। – made by Mijanur",
+      "তুমি পাশে থাকলে দুনিয়া জয় করা যায়। – made by Mijanur",
+      "তুমি আমার গল্পের সবচেয়ে সুন্দর অধ্যায়। – made by Mijanur",
+      "তোমার সাথে জীবনটা perfect লাগছে। – made by Mijanur"
+      // Add 95+ more romantic (Bangla) captions here if needed
+    ],
+    sad: [
+      "মনের কষ্ট চোখে দেখা যায় না। – made by Mijanur",
+      "হাসি মুখের পেছনে লুকানো থাকে অনেক কান্না। – made by Mijanur",
+      "ভালোবাসা যতটা না সুন্দর, কষ্ট ততটাই গভীর। – made by Mijanur",
+      "কেউ কেউ শুধু মনে থেকে যায়, পাশে থাকে না। – made by Mijanur",
+      "ভেতরে ভাঙা মানুষটা বাইরে হাসে। – made by Mijanur"
+      // Add 95+ more sad (Bangla) captions here if needed
+    ],
+    funny: [
+      "ঘুম আর খাবার, এই দুইটা জিনিসে আমি সিরিয়াস। – made by Mijanur",
+      "আমি অলস না, আমি এনার্জি সেভ করি। – made by Mijanur",
+      "জীবনে সফল হবো, যদি না ঘুমিয়ে পড়ি। – made by Mijanur",
+      "আমি সব জানি, শুধু মনে পড়ে না। – made by Mijanur",
+      "পড়ার নাম শুনলেই মাথা ঘুরায়। – made by Mijanur"
+      // Add 95+ more funny (Bangla) captions here if needed
+    ]
+  }
+};
