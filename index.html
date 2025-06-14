@@ -1,144 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Attitude Caption Made by Mijan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attitude Caption Made by Mijanur</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
     }
     h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: #00ffd5;
-    }
-    select, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 5px;
-      border-radius: 5px;
-    }
-    .caption-box {
       margin-top: 30px;
+      font-size: 2rem;
+      color: #222;
+    }
+    #caption {
+      font-size: 1.3rem;
+      margin: 20px;
       padding: 20px;
-      background: #222;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ffd5;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 600px;
     }
-    .caption {
-      font-size: 24px;
-      margin-bottom: 10px;
+    button, select {
+      margin: 10px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background 0.3s ease;
     }
-    .footer {
-      margin-top: 50px;
-      font-size: 14px;
-      color: #aaa;
+    button:hover, select:hover {
+      background-color: #0056b3;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .controls {
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Attitude Caption Made by Mijan</h1>
-
-  <div>
-    <label for="mood">Mood:</label>
-    <select id="mood">
-      <option value="attitude">Attitude</option>
-      <option value="love">Love</option>
-      <option value="sad">Sad</option>
-      <option value="funny">Funny</option>
-    </select>
-
-    <label for="language">Language:</label>
+  <h1>Attitude Caption Made by Mijanur</h1>  <div class="controls">
     <select id="language">
-      <option value="english">English</option>
-      <option value="bengali">বাংলা</option>
-    </select>
+      <option value="en">English</option>
+      <option value="bn">বাংলা</option>
+    </select><select id="mood">
+  <option value="attitude">Attitude</option>
+  <option value="romantic">Romantic</option>
+  <option value="sad">Sad</option>
+  <option value="funny">Funny</option>
+</select>
 
-    <button onclick="generateCaption()">Generate</button>
-    <button onclick="copyCaption()">Copy</button>
-  </div>
+<button onclick="generateCaption()">Generate Caption</button>
+<button onclick="copyCaption()">Copy</button>
 
-  <div class="caption-box">
-    <div class="caption" id="caption">Click generate to see a caption!</div>
-  </div>
-
-  <div class="footer">
-    Made by Mijanur ❤️ | 2025
-  </div>
-
-  <script>
+  </div>  <div id="caption">Loading a powerful caption...</div>  <footer>© 2025 Made by Mijanur</footer>  <script>
     const captions = {
-      attitude: {
-        english: [
-          "I’m not special, I’m just a limited edition.",
-          "I don’t follow others, I only follow my dreams.",
-          "Born to express, not to impress.",
-          "My attitude is bigger than my ego."
+      en: {
+        attitude: [
+          "Legends don't compete, they dominate. – made by Mijanur",
+          "I’m not special, I’m just a limited edition. – made by Mijanur",
+          "Haters gonna hate, I’m just busy being great. – made by Mijanur"
         ],
-        bengali: [
-          "আমি সাধারণ না, আমি একটাই পিস।",
-          "আমি কারো পথ অনুসরণ করি না, আমি নিজের স্বপ্ন দেখি।",
-          "দেখাতে নয়, বুঝাতে এসেছি।",
-          "আমার অ্যাটিটিউড আমার স্টাইল।"
+        romantic: [
+          "Her smile is my favorite chapter. – made by Mijanur",
+          "I love you for all that you are. – made by Mijanur",
+          "You + Me = Forever. – made by Mijanur"
+        ],
+        sad: [
+          "Smiling outside, dead inside. – made by Mijanur",
+          "Pain teaches more than love ever could. – made by Mijanur",
+          "Tears are words the heart can't say. – made by Mijanur"
+        ],
+        funny: [
+          "Sorry, I only date food. – made by Mijanur",
+          "WiFi > Girlfriend. At least it connects. – made by Mijanur",
+          "I’m not lazy, I’m on energy-saving mode. – made by Mijanur"
         ]
       },
-      love: {
-        english: [
-          "You are my today and all of my tomorrows.",
-          "In your smile I see something more beautiful than stars.",
-          "You stole my heart, but I’ll let you keep it."
+      bn: {
+        attitude: [
+          "আমি Bad না ভাই, just আমার vibe সবার সহ্য হয় না। – made by Mijanur",
+          "যারা চোখে চোখ রাখে, তারাই ভয় পায় না। – made by Mijanur",
+          "আমি সাধারণ না, আমি একটাই পিস। – made by Mijanur"
         ],
-        bengali: [
-          "তুমি আমার আজ এবং আগামীকাল।",
-          "তোমার হাসিতে আমি তারার চেয়েও সুন্দর কিছু দেখি।",
-          "তুমি আমার হৃদয় চুরি করেছো, রাখো ওটা চিরকাল।"
-        ]
-      },
-      sad: {
-        english: [
-          "Tears come from the heart, not from the brain.",
-          "I’m not okay, I just smile to hide it.",
-          "Sometimes, silence is the loudest cry."
+        romantic: [
+          "তুই না থাকলে দিন শুরুই হয় না। – made by Mijanur",
+          "ভালোবাসা মানে তোর নাম মনে পড়া বারবার। – made by Mijanur",
+          "তোর হাসি দেখলেই মন ভালো হয়ে যায়। – made by Mijanur"
         ],
-        bengali: [
-          "চোখের জল আসে মন থেকে, মস্তিষ্ক থেকে নয়।",
-          "আমি ভালো নেই, শুধু হাসি দিয়ে ঢাকি।",
-          "কখনো কখনো নীরবতাই সবচেয়ে বড় কান্না।"
-        ]
-      },
-      funny: {
-        english: [
-          "I’m not lazy, I’m on energy-saving mode.",
-          "I used to think I was indecisive, but now I’m not sure.",
-          "If stress burned calories, I’d be a supermodel."
+        sad: [
+          "ভালো থেকো, আমি আর বিরক্ত করবো না। – made by Mijanur",
+          "সবাই ব্যস্ত আপন মানুষটা হারাতে... – made by Mijanur",
+          "একটা সময় ছিল, ও ছিল। এখন শুধু সময় আছে... – made by Mijanur"
         ],
-        bengali: [
-          "আমি অলস না, আমি শক্তি সংরক্ষণে আছি।",
-          "আমি একসময় ভাবতাম আমি দ্বিধাগ্রস্ত, এখন নিশ্চিত না।",
-          "যদি টেনশন ক্যালরি পোড়াতো, আমি মডেল হতাম!"
+        funny: [
+          "আমি এত lazy, ঘুমের মধ্যেও ঘুমাই। – made by Mijanur",
+          "Exam-এর আগে পড়ি, কিন্তু প্রশ্ন দেখে সব ভুলে যাই। – made by Mijanur",
+          "WiFi অন্তত কানেক্ট হয়, প্রেমিকা তো না। – made by Mijanur"
         ]
       }
     };
 
     function generateCaption() {
-      const mood = document.getElementById("mood").value;
-      const language = document.getElementById("language").value;
-      const list = captions[mood][language];
-      const random = list[Math.floor(Math.random() * list.length)];
-      document.getElementById("caption").innerText = random;
+      const lang = document.getElementById('language').value;
+      const mood = document.getElementById('mood').value;
+      const list = captions[lang][mood];
+      const randomIndex = Math.floor(Math.random() * list.length);
+      document.getElementById('caption').innerText = list[randomIndex];
     }
 
     function copyCaption() {
-      const text = document.getElementById("caption").innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Caption copied to clipboard!");
-      });
+      const text = document.getElementById('caption').innerText;
+      navigator.clipboard.writeText(text).then(() => alert("Caption copied!"));
     }
-  </script>
-</body>
+
+    // Auto load one caption
+    window.onload = generateCaption;
+  </script></body>
 </html>
