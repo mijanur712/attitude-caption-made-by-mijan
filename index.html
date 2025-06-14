@@ -1,70 +1,115 @@
-const captions = {
-  en: {
-    attitude: [
-      "Legends don't compete, they dominate. – made by Mijanur",
-      "I'm not special, I'm just a limited edition. – made by Mijanur",
-      "They said I changed, I said I evolved. – made by Mijanur",
-      "No time for fake people. – made by Mijanur",
-      "Success is my revenge. – made by Mijanur"
-      // Add 95+ more attitude (English) captions here if needed
-    ],
-    romantic: [
-      "Every love story is beautiful, but ours is my favorite. – made by Mijanur",
-      "You’re my today and all of my tomorrows. – made by Mijanur",
-      "Falling in love with you was the best accident. – made by Mijanur",
-      "I smile more when I'm with you. – made by Mijanur",
-      "You're not my number one, you're my only one. – made by Mijanur"
-      // Add 95+ more romantic (English) captions here if needed
-    ],
-    sad: [
-      "Tears speak what the heart can't say. – made by Mijanur",
-      "I'm smiling outside, broken inside. – made by Mijanur",
-      "Some wounds never show, but they hurt the most. – made by Mijanur",
-      "Silence is my loudest cry. – made by Mijanur",
-      "Sometimes it's better to be alone. – made by Mijanur"
-      // Add 95+ more sad (English) captions here if needed
-    ],
-    funny: [
-      "I’m not lazy, I’m just on energy-saving mode. – made by Mijanur",
-      "If I were you, I would adore me too. – made by Mijanur",
-      "Life’s too short to be serious all the time. – made by Mijanur",
-      "I'm not weird, I'm limited edition. – made by Mijanur",
-      "I put the ‘Pro’ in procrastinate. – made by Mijanur"
-      // Add 95+ more funny (English) captions here if needed
-    ]
-  },
-  bn: {
-    attitude: [
-      "আমি Bad না ভাই, just আমার vibe সবার সহ্য হয় না। – made by Mijanur",
-      "যারা চোখে চোখ রাখে, তারাই ভয় পায় না। – made by Mijanur",
-      "আমি সাধারণ না, আমি একটাই পিস। – made by Mijanur",
-      "পিছনে কথা বলে যারা, সামনে কিছু করার সাহস নেই তাদের। – made by Mijanur",
-      "আমি trend follow করি না, trend আমি বানাই। – made by Mijanur"
-      // Add 95+ more attitude (Bangla) captions here if needed
-    ],
-    romantic: [
-      "তোমার হাসিটা আমার পুরো দিন ভালো করে দেয়। – made by Mijanur",
-      "ভালোবাসি বলা হয় না, অনুভব করানো হয়। – made by Mijanur",
-      "তুমি পাশে থাকলে দুনিয়া জয় করা যায়। – made by Mijanur",
-      "তুমি আমার গল্পের সবচেয়ে সুন্দর অধ্যায়। – made by Mijanur",
-      "তোমার সাথে জীবনটা perfect লাগছে। – made by Mijanur"
-      // Add 95+ more romantic (Bangla) captions here if needed
-    ],
-    sad: [
-      "মনের কষ্ট চোখে দেখা যায় না। – made by Mijanur",
-      "হাসি মুখের পেছনে লুকানো থাকে অনেক কান্না। – made by Mijanur",
-      "ভালোবাসা যতটা না সুন্দর, কষ্ট ততটাই গভীর। – made by Mijanur",
-      "কেউ কেউ শুধু মনে থেকে যায়, পাশে থাকে না। – made by Mijanur",
-      "ভেতরে ভাঙা মানুষটা বাইরে হাসে। – made by Mijanur"
-      // Add 95+ more sad (Bangla) captions here if needed
-    ],
-    funny: [
-      "ঘুম আর খাবার, এই দুইটা জিনিসে আমি সিরিয়াস। – made by Mijanur",
-      "আমি অলস না, আমি এনার্জি সেভ করি। – made by Mijanur",
-      "জীবনে সফল হবো, যদি না ঘুমিয়ে পড়ি। – made by Mijanur",
-      "আমি সব জানি, শুধু মনে পড়ে না। – made by Mijanur",
-      "পড়ার নাম শুনলেই মাথা ঘুরায়। – made by Mijanur"
-      // Add 95+ more funny (Bangla) captions here if needed
-    ]
-  }
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attitude Caption Made by Mijan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #facc15;
+    }
+    select, button {
+      padding: 0.5rem;
+      margin: 0.5rem;
+    }
+    #caption-box {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Attitude Caption Made by Mijanur</h1>
+
+  <div>
+    <label>Language:</label>
+    <select id="langSelect">
+      <option value="en">English</option>
+      <option value="bn">বাংলা</option>
+    </select>
+
+    <label>Category:</label>
+    <select id="catSelect">
+      <option value="attitude">Attitude</option>
+      <option value="romantic">Romantic</option>
+      <option value="sad">Sad</option>
+      <option value="funny">Funny</option>
+    </select>
+
+    <button onclick="generate()">Generate Caption</button>
+    <button onclick="copyText()">Copy</button>
+  </div>
+
+  <div id="caption-box">Click "Generate" to get a caption!</div>
+
+  <script>
+    const captions = {
+      en: {
+        attitude: [
+          "I'm not special, I'm just a limited edition. – made by Mijanur",
+          "Legends don't compete, they dominate. – made by Mijanur",
+          "Success is my revenge. – made by Mijanur"
+        ],
+        romantic: [
+          "You're my today and all of my tomorrows. – made by Mijanur",
+          "Every love story is beautiful, but ours is my favorite. – made by Mijanur"
+        ],
+        sad: [
+          "Tears speak what the heart can't say. – made by Mijanur",
+          "I'm smiling outside, broken inside. – made by Mijanur"
+        ],
+        funny: [
+          "I’m not lazy, I’m just on energy-saving mode. – made by Mijanur",
+          "Life’s too short to be serious all the time. – made by Mijanur"
+        ]
+      },
+      bn: {
+        attitude: [
+          "আমি সাধারণ না, আমি একটাই পিস। – made by Mijanur",
+          "আমি trend follow করি না, trend আমি বানাই। – made by Mijanur"
+        ],
+        romantic: [
+          "তুমি পাশে থাকলে দুনিয়া জয় করা যায়। – made by Mijanur",
+          "তোমার হাসিটা আমার পুরো দিন ভালো করে দেয়। – made by Mijanur"
+        ],
+        sad: [
+          "ভেতরে ভাঙা মানুষটা বাইরে হাসে। – made by Mijanur",
+          "হাসি মুখের পেছনে লুকানো থাকে অনেক কান্না। – made by Mijanur"
+        ],
+        funny: [
+          "আমি অলস না, আমি এনার্জি সেভ করি। – made by Mijanur",
+          "জীবনে সফল হবো, যদি না ঘুমিয়ে পড়ি। – made by Mijanur"
+        ]
+      }
+    };
+
+    function generate() {
+      const lang = document.getElementById("langSelect").value;
+      const cat = document.getElementById("catSelect").value;
+      const capList = captions[lang][cat];
+      const random = capList[Math.floor(Math.random() * capList.length)];
+      document.getElementById("caption-box").innerText = random;
+    }
+
+    function copyText() {
+      const text = document.getElementById("caption-box").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Caption copied!");
+      });
+    }
+  </script>
+</body>
+</html>
