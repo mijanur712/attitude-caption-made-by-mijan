@@ -1,0 +1,25 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  text-align: center;
+}
+button {
+  padding: 10px 20px;
+  background-color: yellow;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+#caption {
+  margin-top: 20px;
+  font-size: 18px;
+}
