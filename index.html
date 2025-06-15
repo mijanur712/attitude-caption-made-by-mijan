@@ -1,4 +1,60 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attitude Captions Made by Mijanur</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #00ffd5;
+      text-align: center;
+    }
+    .caption-box {
+      background-color: #222;
+      border-left: 4px solid #00ffd5;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 6px;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background-color: #00ffd5;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Attitude Captions (English + Bangla) – Made by Mijanur</h1>
+  <div id="captions">
+    <div class="caption-box">I'm not special, I'm just limited edition. <br><strong>আমি স্পেশাল না, আমি লিমিটেড এডিশন।</strong><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+    <div class="caption-box">Born to express, not to impress. <br><strong>প্রকাশ করার জন্য জন্মেছি, প্রভাব ফেলতে নয়।</strong><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+    <div class="caption-box">My style is my signature. <br><strong>আমার স্টাইলই আমার স্বাক্ষর।</strong><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+    <div class="caption-box">Attitude is my born quality. <br><strong>অ্যাটিটিউড আমার জন্মগত গুণ।</strong><button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+    <div class="caption-box">I never explain myself, because I know I made no mistake. <br><strong>আমি কখনো নিজেকে ব্যাখ্যা করি না, কারণ আমি জানি আমি কোনো ভুল করিনি।</strong><button class="copy-btn" onclick="copyText(this)">Copy</button></div><!-- Add 95 more like these below -->
+
+<!-- Example Placeholder -->
+<!-- <div class="caption-box">Caption in English<br><strong>বাংলা অনুবাদ</strong><button class="copy-btn" onclick="copyText(this)">Copy</button></div> -->
+
+  </div>  <script>
+    function copyText(btn) {
+      const text = btn.parentElement.innerText.replace("Copy", "").trim();
+      navigator.clipboard.writeText(text);
+      alert("Copied: " + text);
+    }
+  </script></body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
