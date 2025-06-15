@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attitude Caption - Made by Mijanur</title>
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; text-align: center; padding: 2rem; }
+    .caption { margin: 1rem 0; background: #222; padding: 1rem; border-radius: 10px; }
+    button { background: #facc15; color: black; padding: 0.5rem 1rem; border: none; border-radius: 8px; cursor: pointer; }
+    .lang-toggle { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Attitude Caption Generator</h1>
+  <div id="caption" class="caption">Click the button to get a caption</div>
+  <button onclick="generateCaption()">Generate Caption</button>
+  <div class="lang-toggle">
+    <label><input type="checkbox" id="lang" onchange="toggleLanguage()"> বাংলা</label>
+  </div>
+  <script>
+    const captions = {
+      en: [
+        "I’m not here to fit in. I’m here to stand out. — made by Mijanur",
+        "Don’t chase people. Be an example. Let them chase you. — made by Mijanur",
+        "Built from silence, powered by confidence. — made by Mijanur"
+      ],
+      bn: [
+        "আমি মিশতে নয়, আলাদা হতে এসেছি। — made by Mijanur",
+        "লোকেদের পেছনে দৌড়িও না। উদাহরণ হও, তারা তোমার পেছনে আসবে। — made by Mijanur",
+        "নীরবতা থেকে গড়া, আত্মবিশ্বাসে চালিত। — made by Mijanur"
+      ]
+    };
+    let lang = "en";
+    function generateCaption() {
+      const list = captions[lang];
+      const random = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("caption").textContent = random;
+    }
+    function toggleLanguage() {
+      lang = document.getElementById("lang").checked ? "bn" : "en";
+      generateCaption();
+    }
+  </script>
+</body>
+</html>
