@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attitude Caption Made by Mijanur</title>
+  <meta name="description" content="100+ Attitude, Romantic, Sad, and Funny captions. Made by Mijanur. Copy & Share!">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #00ffd5;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: none;
+    }
+    .caption-box {
+      background: #222;
+      border-left: 5px solid #00ffd5;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      background: #00ffd5;
+      color: #000;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .lang-toggle {
+      float: right;
+      margin-top: -60px;
+      margin-right: 20px;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Attitude Caption Made by Mijanur</h1>
+  <div class="lang-toggle">
+    <label style="color: #00ffd5;">
+      <input type="checkbox" id="languageToggle" onchange="toggleLanguage()" />
+      বাংলা / English
+    </label>
+  </div>
+  <select id="category" onchange="filterCaptions()">
+    <option value="attitude">Attitude</option>
+    <option value="romantic">Romantic</option>
+    <option value="sad">Sad</option>
+    <option value="funny">Funny</option>
+  </select>
+
+  <div id="captions"></div>
+
+  <footer>Made by Mijanur ❤️</footer>
+
+  <script>
+    const captions = {
+      attitude: [
+        { en: "I’m not special, I’m just limited edition. – made by Mijanur", bn: "আমি বিশেষ কিছু না, আমি একদম ইউনিক। – made by Mijanur" },
+        { en: "Born to express, not to impress. – made by Mijanur", bn: "প্রকাশ করার জন্য জন্মেছি, প্রভাবিত করার জন্য নয়। – made by Mijanur" },
+        { en: "My attitude is my power. – made by Mijanur", bn: "আমার অ্যাটিটিউডই আমার শক্তি। – made by Mijanur" }
+      ],
+      romantic: [
+        { en: "You are my today and all of my tomorrows. – made by Mijanur", bn: "তুমি আমার আজ, আর সব কাল। – made by Mijanur" },
+        { en: "You stole my heart, but I’ll let you keep it. – made by Mijanur", bn: "তুমি আমার হৃদয় চুরি করেছো, কিন্তু আমি তোমাকে তা রেখে দিতে দেব। – made by Mijanur" },
+        { en: "Every love story is beautiful, but ours is my favorite. – made by Mijanur", bn: "প্রতিটি প্রেম কাহিনী সুন্দর, তবে আমাদেরটাই আমার প্রিয়। – made by Mijanur" }
+      ],
+      sad: [
+        { en: "Sometimes, you have to smile to hide your pain. – made by Mijanur", bn: "কখনও কখনও, ব্যথা লুকাতে হাসতে হয়। – made by Mijanur" },
+        { en: "Tears come from the heart, not from the brain. – made by Mijanur", bn: "চোখের জল মস্তিষ্ক থেকে নয়, হৃদয় থেকে আসে। – made by Mijanur" },
+        { en: "I hide all my scars with a smile. – made by Mijanur", bn: "আমি আমার সব ক্ষত হাসির আড়ালে লুকাই। – made by Mijanur" }
+      ],
+      funny: [
+        { en: "I'm not lazy, I'm on energy-saving mode. – made by Mijanur", bn: "আমি অলস নই, আমি এনার্জি সেভিং মোডে আছি। – made by Mijanur" },
+        { en: "I put the ‘Pro’ in procrastinate. – made by Mijanur", bn: "আমি 'প্রো' লেভেলের আলসেমি করি। – made by Mijanur" },
+        { en: "Brains are awesome—I wish everybody had one. – made by Mijanur", bn: "মস্তিষ্ক দুর্দান্ত—ইচ্ছে করে সবাই যদি একটা করে পেত। – made by Mijanur" }
+      ]
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = document.getElementById('languageToggle').checked ? 'bn' : 'en';
+      filterCaptions();
+    }
+
+    function filterCaptions() {
+      const category = document.getElementById('category').value;
+      const captionBox = document.getElementById('captions');
+      captionBox.innerHTML = "";
+
+      captions[category].forEach(text => {
+        const box = document.createElement('div');
+        box.className = 'caption-box';
+        const captionText = text[currentLang];
+        box.innerHTML = `
+          ${captionText}
+          <button class="copy-btn" onclick="copyToClipboard(\`${captionText}\`)">Copy</button>
+        `;
+        captionBox.appendChild(box);
+      });
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      alert("Caption copied!");
+    }
+
+    window.onload = filterCaptions;
+  </script>
+
+</body>
+</html>
