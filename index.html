@@ -85,4 +85,54 @@
       ],
       sad: [
         "Sometimes, you have to smile to hide your pain. – made by Mijanur",
-        "Tears come from the heart,
+        "Tears come from the heart, not from the brain. – made by Mijanur",
+        "I hide all my scars with a smile. – made by Mijanur",
+        // ... add 47+ English sad
+        "হাসির আড়ালে লুকিয়ে থাকে অনেক কষ্ট। – made by Mijanur",
+        "চোখের জল বোঝাতে পারে মনের যন্ত্রণা। – made by Mijanur",
+        // ... add 47+ Bangla sad
+      ],
+      funny: [
+        "I'm not lazy, I'm on energy-saving mode. – made by Mijanur",
+        "I put the ‘Pro’ in procrastinate. – made by Mijanur",
+        "Brains are awesome—I wish everybody had one. – made by Mijanur",
+        // ... add 57+ English funny
+        "আমার অলসতা একটা শিল্প! – made by Mijanur",
+        "হাসি থামাও, আমি সিরিয়াস! – made by Mijanur",
+        // ... add 57+ Bangla funny
+      ]
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      filterCaptions();
+    }
+
+    function filterCaptions() {
+      const category = document.getElementById('category').value;
+      const box = document.getElementById('captions');
+      box.innerHTML = '';
+
+      captions[category].forEach(text => {
+        if ((currentLang === 'en' && /[a-zA-Z]/.test(text)) || (currentLang === 'bn' && /[\u0980-\u09FF]/.test(text))) {
+          const div = document.createElement('div');
+          div.className = 'caption-box';
+          div.innerHTML = `
+            ${text}
+            <button class="copy-btn" onclick="copyToClipboard(\`${text}\`)">Copy</button>
+          `;
+          box.appendChild(div);
+        }
+      });
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      alert("Caption copied!");
+    }
+
+    window.onload = filterCaptions;
+  </script></body>
+</html>
